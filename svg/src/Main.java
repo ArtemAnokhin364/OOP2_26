@@ -30,36 +30,30 @@ public class Main {
         System.out.println(p2);
         System.out.println(p2.toSvg());
 
-        Segment s1 = new Segment();
-        s1.a = p1;
-        s1.b = p2;
+        Segment s1 = new Segment(p1, p2);
 
         System.out.println("długość s1 = " + s1.length());
         System.out.println(s1);
         System.out.println(s1.toSvg());
 
-
         Segment[] segments = new Segment[3];
 
-        segments[0] = new Segment();
-        segments[0].a = new Point();
-        segments[0].a.setX(0);
-        segments[0].a.y = 0;
-        segments[0].b = new Point();
-        segments[0].b.setX(0);
-        segments[0].b.y = 40;
+        segments[0] = new Segment(new Point(0, 0), new Point(0, 40));
 
         segments[1] = s1;
 
-        segments[2] = new Segment();
-        segments[2].a = new Point();
-        segments[2].a.setX(0);
-        segments[2].a.y = 0;
-        segments[2].b = new Point();
-        segments[2].b.setX(33);
-        segments[2].b.y = 0;
+        segments[2] = new Segment(new Point(0, 0), new Point(33, 0));
 
         Segment max = Segment.maxLength(segments);
         System.out.println("Najdłuższy: " + max);
+        System.out.println();
+
+        System.out.println("s1 przed modyfikacjami: " + s1);
+        p1.setX(100);
+        p2.setY(100);
+        System.out.println("s1 po modyfikacjach: " + s1);
+        System.out.println("Najdluższy po modyfikacjach: " + max);
+
+
     }
 }
