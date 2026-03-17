@@ -1,5 +1,5 @@
 <svg height="200.000000" width="160.000000" xmlns="http://www.w3.org/2000/svg">
-<polygon points="10.00,10.00 70.00,10.00 50.00,50.00 10.00,70.00 " style="fill:lime;stroke:purple;stroke-width:3" />
-<polygon points="120.00,120.00 160.00,160.00 120.00,160.00 " style="fill:lime;stroke:purple;stroke-width:3" />
-<polygon points="10.00,100.00 20.00,200.00 80.00,160.00 " style="fill:lime;stroke:purple;stroke-width:3" />
+<polygon points="10.00,10.00 10.00,80.00 80.00,80.00 80.00,10.00 " style="fill:red;stroke:green;stroke-width:3.000000" />
+<polygon points="120.00,120.00 160.00,160.00 120.00,160.00 " style="fill:none;stroke:black;stroke-width:1.000000" />
+<polygon points="10.00,100.00 20.00,200.00 80.00,160.00 " style="fill:red;stroke:green;stroke-width:3.000000" />
 </svg>

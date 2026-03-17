@@ -5,6 +5,15 @@ public class Polygon {
     private Point[] points;
     private Style style;
 
+    // metoda wytwórcza: statyczna metoda zwracająca otworzony obiekt
+    // nie jest to konstruktor
+    public static Polygon square(Segment seg, Style style) {
+        Segment perp = seg.perpendicular();
+        return new Polygon(new Point[] {
+                seg.getA(), perp.getA(), seg.getB(), perp.getB()
+            }, style);
+    }
+
     public BoundingBox boundingBox() {
         Point p0 = new Point(points[0]);
         Point p1 = new Point(points[0]);
@@ -47,7 +56,7 @@ public class Polygon {
             pointsString.append(String.format(Locale.ENGLISH, "%.2f,%.2f ", p.getX(), p.getY()));
         }
         return String.format("<polygon points=\"%s\" " +
-                "style=\"fill:lime;stroke:purple;stroke-width:3\" />",
-                pointsString.toString());
+                "style=\"%s\" />",
+                pointsString.toString(), style.toSvg());
     }
 }

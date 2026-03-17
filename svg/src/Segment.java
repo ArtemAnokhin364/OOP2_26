@@ -6,7 +6,7 @@ public class Segment {
         double mx = (a.getX() + b.getX()) / 2;
         double my = (a.getY() + b.getY()) / 2;
 
-        //wektor kierunkowy prostopadły
+        // wektor kierunkowy prostopadły
         double dx = -(b.getY() - a.getY());
         double dy = (b.getX() - a.getX());
         // połowa wektora kierunkowego
