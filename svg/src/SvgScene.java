@@ -3,8 +3,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Locale;
 
-public class SvgScene {
-    private Polygon[] polygons;
+public class SvgScene implements Svg {
+    // tablica, korzystając z polimorfizmu, będzie mogła przechowywać obiekty
+    // typu Ellipse
+    private Shape[] shapes;
     private int i = 0;
 
     public void save(String fileName) {
@@ -34,7 +36,7 @@ public class SvgScene {
     private BoundingBox boundingBox() {
         double minWidth = 0;
         double minHeight = 0;
-        for (Polygon poly : polygons) {
+        for (Shape poly : shapes) {
             if (poly == null) continue;
 
             BoundingBox bb = poly.boundingBox();
@@ -48,17 +50,18 @@ public class SvgScene {
     }
 
     public SvgScene() {
-        polygons = new Polygon[3];
+        shapes = new Shape[3];
+        i = 0;
     }
 
-    public void addPolygon(Polygon poly) {
-        polygons[i] = poly;
+    public void addShape(Shape shape) {
+        shapes[i] = shape;
         i = (i + 1) % 3; // 0 -> 1 -> 2 -> 0 -> 1 -> 2 -> ...
     }
 
     public String toSvg() {
         String svg = "";
-        for (Polygon p : polygons) {
+        for (Shape p : shapes) {
             if (p == null) continue;
 
             svg += p.toSvg() + "\n";
